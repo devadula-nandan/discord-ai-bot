@@ -42,7 +42,7 @@ async def on_message(ctx):
 
     if bot.user.mentioned_in(ctx):
         async with ctx.channel.typing():
-            query = get_query_from_message(ctx)
+            query = await  get_query_from_message(ctx)
             response = generate_gemini_response(
                 f"query: {query} \nemojis: {' '.join(all_guild_emojis[ctx.guild.id])} \naccent: funny ugandan monkey \ngenerate a very short response for the query with above parameters"
             )
